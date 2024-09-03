@@ -2,7 +2,7 @@ import React, { MouseEvent, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/app/store/store';
 import { initTheme, toggleTheme } from '@/app/store/actions';
-import { Theme } from '@/app/types/theme';
+import { storageThemeKey, Theme } from '@/app/types/theme';
 
 export default function ThemeSwitch() {
   const dispatch = useDispatch<AppDispatch>();
@@ -14,7 +14,7 @@ export default function ThemeSwitch() {
 
   useEffect(() => {
     if (Object.values(Theme).includes(appTheme)) {
-      window.localStorage.setItem('storageThemeKey', appTheme);
+      window.localStorage.setItem(storageThemeKey, appTheme);
       document.documentElement.classList[appTheme === Theme.Dark ? 'add' : 'remove'](Theme.Dark);
     }
   }, [appTheme]);
