@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import emailjs from '@emailjs/browser';

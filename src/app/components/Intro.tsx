@@ -1,14 +1,17 @@
-"use client";
-
-import {MouseEvent} from "react";
+import { MouseEvent } from "react";
+import html2pdf from "html2pdf.js"
 import IconTelegram from "@/app/components/icons/IconTelegram";
 import IconGithub from "@/app/components/icons/IconGithub";
 import IconLinkedIn from "@/app/components/icons/IconLinkedIn";
 
-
 export default function Intro() {
     const downloadCv = (e: MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
+            const element = document.getElementById('element-to-print')
+            const options = {
+                filename:     'glebovanton.github.io.pdf',
+            };
+            html2pdf().set(options).from(element).save();
         };
     const experienceYears = new Date().getFullYear() - 2015;
 
@@ -22,7 +25,7 @@ export default function Intro() {
                     <div style={{opacity: 1, transform: 'none'}}>
                         <img
                             alt="Anton portrait"
-                            fetchPriority="high"
+                            fetch-priority="high"
                             width="368"
                             height="368"
                             decoding="async"

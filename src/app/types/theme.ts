@@ -1,6 +1,6 @@
-export const storageThemeKey = "theme";
+export const storageThemeKey = 'theme';
 
 export enum Theme {
-    Light = "light",
-    Dark = "dark",
+  Light = 'light',
+  Dark = 'dark'
 }

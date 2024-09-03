@@ -1,27 +1,24 @@
-import { SET_THEME, TOGGLE_THEME } from './actionTypes';
-import { storageThemeKey } from '@/app/types/theme';
-import { Theme } from '@/app/types/theme'
+import { storageThemeKey, Theme } from '@/app/types/theme';
+import { SET_THEME, TOGGLE_THEME } from './types';
 
-export const setTheme = (theme) => ({
-    type: SET_THEME,
-    payload: theme,
+export const setTheme = (theme: Theme) => ({
+  type: SET_THEME,
+  payload: theme,
 });
 
 export const toggleTheme = () => ({
-    type: TOGGLE_THEME,
+  type: TOGGLE_THEME,
 });
 
-export const initTheme = () => {
-    return (dispatch) => {
-        const localTheme = window.localStorage.getItem(storageThemeKey);
+export const initTheme = () => (dispatch: (arg0: { type: string; payload: Theme; }) => void) => {
+  const localTheme:any = window.localStorage.getItem(storageThemeKey);
 
-        if (localTheme) {
-            dispatch(setTheme(localTheme));
-            return;
-        }
+  if (localTheme) {
+    dispatch(setTheme(localTheme));
+    return;
+  }
 
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            dispatch(setTheme(Theme.Dark));
-        }
-    };
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    dispatch(setTheme(Theme.Dark));
+  }
 };

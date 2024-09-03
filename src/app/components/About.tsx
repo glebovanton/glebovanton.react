@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
@@ -25,7 +25,7 @@ export default function About() {
           <span className="font-medium"> Node.js</span> +
           <span className="font-medium"> Nest.js</span> +
           <span className="font-medium"> AWS</span>.
-          <Link className="inline-block bg-gray-100 rounded-full inset-0 px-3 dark:bg-gray-800" href={{ pathname: '/about' }}> More
+          <Link className="inline-block bg-gray-100 rounded-full inset-0 px-3 dark:bg-gray-800" to={{ pathname: '/about' }}> More
             details </Link>
         </p>
       </section>

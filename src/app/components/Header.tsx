@@ -1,21 +1,12 @@
-"use client";
-
-import { useEffect } from "react";
-import { useParams, usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from 'react-router-dom'
 import { linksData } from "@/app/data";
 
 export default function Header() {
-    let hash = '';
-
-    useEffect(() => {
-        hash = window.location.hash;
-    }, [useParams()]);
+    let hash = window.location.hash;
+    let pathname = window.location.pathname;
 
     function isActive(linkHash: string): boolean {
-        const name = usePathname();
-
-        if (name === "about") {
+        if (pathname === "about") {
             return false;
         }
 
@@ -39,7 +30,7 @@ export default function Header() {
                             style={{ opacity: 1, transform: 'none' }}
                         >
                             <Link
-                                href={{ pathname: name, hash }}
+                                to={`${name}${hash}`}
                                 className="flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 text-gray-950 dark:text-gray-200"
                             >
                                 {title}

@@ -6,7 +6,7 @@ import Projects from '@/app/components/Projects'
 import SectionDivider from '@/app/components/SectionDivider'
 import Skills from '@/app/components/Skills'
 
-export default function TheWelcome() {
+export default function Home() {
 
   return (
      <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { aboutImagesData } from '@/app/data';
-import './about.css';
+import '@/assets/styles/about.css';
 
 const About = () => {
     return (
@@ -33,7 +33,7 @@ const About = () => {
                                         <img
                                             alt={`gallery-${imageIndex}`}
                                             className="block h-full w-full rounded-lg object-cover object-center"
-                                            src={typeof image.image === 'string' ? image.image : image.image.src}
+                                            src={image.image}
                                         />
                                     </div>
                                 ))}

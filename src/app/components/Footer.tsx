@@ -8,8 +8,8 @@ export default function Footer() {
         >&copy; Copyright: Anton Glebov. {copyrightYears}</small
         >
         <p className="text-xs">
-          <span className="font-semibold">About this website:</span> built with Vue 3
-          &amp; Vuex, TypeScript, Tailwind CSS,
+          <span className="font-semibold">About this website:</span> built with React
+          &amp; Redux, TypeScript, Tailwind CSS,
           Framer Motion, Github pages.
         </p>
       </footer>

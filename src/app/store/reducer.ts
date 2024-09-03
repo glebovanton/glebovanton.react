@@ -1,26 +1,30 @@
-import { SET_THEME, TOGGLE_THEME } from './actionTypes';
-import { Theme } from '@/app/types/theme'
+import { Theme } from '@/app/types/theme';
+import {
+  ThemeAction, ThemeState, SET_THEME, TOGGLE_THEME,
+} from './types';
 
-const initialState = {
-    appTheme: null,
+const initialState: ThemeState = {
+  appTheme: null,
 };
 
-const themeReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_THEME:
-            return {
-                ...state,
-                appTheme: action.payload,
-            };
-        case TOGGLE_THEME:
-            return {
-                ...state,
-                appTheme: state.appTheme === Theme.Light ? Theme.Dark : Theme.Light,
-            };
-        default:
-            return state;
-    }
+const themeReducer = (
+  state: ThemeState = initialState,
+  action: ThemeAction
+): ThemeState => {
+  switch (action.type) {
+    case SET_THEME:
+      return {
+        ...state,
+        appTheme: action.payload,
+      };
+    case TOGGLE_THEME:
+      return {
+        ...state,
+        appTheme: state.appTheme === Theme.Light ? Theme.Dark : Theme.Light,
+      };
+    default:
+      return state;
+  }
 };
 
 export default themeReducer;
-
