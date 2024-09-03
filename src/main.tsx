@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import About from '@/app/pages/About';
 import Home from '@/app/pages/Home';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
@@ -22,6 +23,7 @@ if (container) {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
             <ThemeSwitch />
