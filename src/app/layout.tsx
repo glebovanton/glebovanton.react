@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from '@/app/store/store';
 import { Inter } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
+import '@/assets/main.css'
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
+import ThemeSwitch from "@/app/components/ThemeSwitch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +35,16 @@ export default function RootLayout({
         <meta name="keywords"
               content="Anton Glebov, CV, resume, software developer, professional experience, education, skills, achievements"/>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 ${inter.className}`}>
+      <Provider store={store}>
+          <main className="flex flex-col items-center px-4">
+              <Header/>
+              {children} {/* This will render the page content */}
+              <Footer/>
+              <ThemeSwitch/>
+          </main>
+      </Provider>
+      </body>
       </html>
   );
 }

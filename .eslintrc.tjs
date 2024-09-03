@@ -34,6 +34,10 @@ module.exports = {
         'no-extra-parens': [2, 'all'],
         'no-invalid-regexp': 2,
         'no-unreachable': 2,
+        "parserOptions": {
+            "sourceType": "module",
+            "allowImportExportEverywhere": true
+        },
         'use-isnan': 2,
         'valid-typeof': 2,
         'no-unexpected-multiline': 2,

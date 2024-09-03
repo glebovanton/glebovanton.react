@@ -1,16 +1,9 @@
-import Header from '@/app/components/Header';
-// import Footer from '../components/Footer';
-// import ThemeSwitch from '../components/ThemeSwitch';
+import TheWelcome from "@/app/components/TheWelcome";
 
 // @ts-ignore
-const Layout = ({ children }) => {
+const Layout = () => {
     return (
-        <main className="flex flex-col items-center px-4">
-            <Header />
-            {children} {/* This will render the page content */}
-            {/*<Footer />*/}
-            {/*<ThemeSwitch />*/}
-        </main>
+        <TheWelcome />
     );
 };
 
