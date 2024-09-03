@@ -15,11 +15,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
+    "@emailjs/browser": "^4.3.3",
     "@reduxjs/toolkit": "^2.0.1",
     "@types/react-router-hash-link": "^2.4.9",
     "crypto-js": "^4.2.0",
-    "emailjs": "^4.0.3",
     "html2pdf.js": "^0.9.0",
     "react": "^18",
     "react-dom": "^18.2.0",
