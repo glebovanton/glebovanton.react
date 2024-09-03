@@ -1,5 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
+import ReactGA from 'react-ga';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import About from '@/app/pages/About';
@@ -12,6 +14,35 @@ import '@/assets/styles/main.css';
 
 const container = document.getElementById('app');
 
+ReactGA.initialize('G-8STX2NJWYH', {
+  debug: process.env.NODE_ENV === 'development',
+  titleCase: false,
+});
+
+function usePageTracking() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
+}
+
+function App() {
+  usePageTracking();
+
+  return (
+    <main className="flex flex-col items-center px-4">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
+      <ThemeSwitch />
+    </main>
+  );
+}
+
 if (container) {
   const root = createRoot(container);
 
@@ -19,15 +50,7 @@ if (container) {
     <React.StrictMode>
       <Provider store={store}>
         <Router>
-          <main className="flex flex-col items-center px-4">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-            <Footer />
-            <ThemeSwitch />
-          </main>
+          <App />
         </Router>
       </Provider>
     </React.StrictMode>
